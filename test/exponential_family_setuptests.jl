@@ -65,6 +65,7 @@ BayesBase.vague(::Type{ArbitraryConditionedDistributionFromExponentialFamily}) =
     ArbitraryConditionedDistributionFromExponentialFamily(1.0, -2)
 
 BayesBase.params(dist::ArbitraryConditionedDistributionFromExponentialFamily) = (dist.con, dist.p1)
+BayesBase.value_support(::ArbitraryConditionedDistributionFromExponentialFamily) = Continuous
 
 ExponentialFamily.separate_conditioner(::Type{ArbitraryConditionedDistributionFromExponentialFamily}, params) = ((params[2],), params[1])
 ExponentialFamily.join_conditioner(::Type{ArbitraryConditionedDistributionFromExponentialFamily}, cparams, conditioner) = (conditioner, cparams...)

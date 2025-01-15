@@ -51,5 +51,6 @@ end
         @test getsupport(prod_dist) == NaturalNumbers()
 
         @test sum(pdf(prod_dist, x) for x in 0:15) ≈ 1.0
+        @test value_support(prod_dist) == Discrete
     end
 end

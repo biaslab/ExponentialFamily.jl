@@ -70,6 +70,7 @@ end
 
             @test !@inferred(insupport(ef, s + 1))
             @test @inferred(insupport(ef, s))
+            @test @inferred(value_support(ef)) == Discrete
 
             # # Not in the support
             @test_throws Exception logpdf(ef, ones(s))
@@ -91,9 +92,9 @@ end
     using RecursiveArrayTools
     include("distributions_setuptests.jl")
     for s in (2, 3, 4, 5)
-        @testset let params = rand(s - 1)
-            ef = ExponentialFamilyDistribution(Categorical, [params..., 0], s, nothing)
-            part_ef = ExponentialFamilyDistribution(Categorical, ArrayPartition(params, [0]), s, nothing)
+        @testset let params = rand(s-1)
+            ef = ExponentialFamilyDistribution(Categorical, [params..., 0], s)
+            part_ef = ExponentialFamilyDistribution(Categorical, ArrayPartition(params, [0]), s)
             @test convert(Distribution, ef) ≈ convert(Distribution, part_ef)
             @test mean(ef) ≈ mean(part_ef)
             @test var(ef) ≈ var(part_ef)

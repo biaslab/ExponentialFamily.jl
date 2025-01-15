@@ -83,6 +83,7 @@ end
             @test first(
                 hquadrature(x -> pdf(prod_dist, tan(x * pi / 2)) * (pi / 2) * (1 / cos(x * pi / 2)^2), (2 / pi) * atan(getsupport(prod_dist).lb), 1.0)
             ) ≈ 1.0
+            @test value_support(prod_dist) == Continuous
         end
     end
 end

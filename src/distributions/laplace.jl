@@ -102,6 +102,7 @@ function BayesBase.prod(
         attributes = ExponentialFamilyDistributionAttributes(basemeasure, sufficientstatistics, logpartition, supp)
         return ExponentialFamilyDistribution(
             Univariate,
+            Continuous,
             naturalparameters,
             nothing,
             attributes

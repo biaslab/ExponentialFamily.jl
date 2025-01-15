@@ -25,6 +25,7 @@ function BayesBase.prod(
 
     return ExponentialFamilyDistribution(
         Univariate,
+        Discrete,
         naturalparameters,
         nothing,
         attributes

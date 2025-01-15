@@ -75,7 +75,7 @@ end
                     support = 0:1:max(nleft, nright)
 
                     @test sum(hist_sum, support) ≈ 1.0 atol = 1e-9
-
+                    @test value_support(prod_dist) == Discrete
                     for x in support
                         @test basemeasure(prod_dist, x) ≈ (binomial(nleft, x) * binomial(nright, x))
                         @test all(sufficientstatistics(prod_dist, x) .≈ (x,))

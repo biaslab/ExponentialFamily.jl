@@ -30,8 +30,9 @@ function BayesBase.prod(
     conditionerright = getconditioner(right)
     ηleft = getnaturalparameters(left)
     ηright = getnaturalparameters(right)
-
-    return ExponentialFamilyDistribution(VonMises, ηright + ηleft, conditionerleft + conditionerright, nothing)
+   
+    return ExponentialFamilyDistribution(VonMises, ηright + ηleft , conditionerleft + conditionerright)
+     
 end
 
 BayesBase.insupport(ef::ExponentialFamilyDistribution{T}, value) where {T <: VonMises} = insupport(convert(Distribution, ef), value)
