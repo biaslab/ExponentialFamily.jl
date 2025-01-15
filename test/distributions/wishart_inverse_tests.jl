@@ -240,10 +240,10 @@ end
             # Test commutativity of the product
             prod_result1 = prod(PreserveTypeProd(Distribution), left, right_fast)
             prod_result2 = prod(PreserveTypeProd(Distribution), right_fast, left)
-            
+
             @test prod_result1.ν ≈ prod_result2.ν
             @test prod_result1.S ≈ prod_result2.S
-            
+
             # Test that the product preserves type
             @test prod_result1 isa InverseWishartFast
             @test prod_result2 isa InverseWishartFast

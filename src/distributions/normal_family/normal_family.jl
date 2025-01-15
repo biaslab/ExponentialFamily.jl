@@ -1,5 +1,5 @@
 export GaussianMeanVariance, GaussianMeanPrecision, GaussianWeighteMeanPrecision
-export MvGaussianMeanCovariance, MvGaussianMeanPrecision, MvGaussianWeightedMeanPrecision
+export MvGaussianMeanCovariance, MvGaussianMeanPrecision, MvGaussianWeightedMeanPrecision, MvGaussianMeanScalePrecision
 export UnivariateNormalDistributionsFamily, MultivariateNormalDistributionsFamily, NormalDistributionsFamily
 export UnivariateGaussianDistributionsFamily, MultivariateGaussianDistributionsFamily, GaussianDistributionsFamily
 export JointNormal, JointGaussian
@@ -10,9 +10,10 @@ const GaussianWeighteMeanPrecision    = NormalWeightedMeanPrecision
 const MvGaussianMeanCovariance        = MvNormalMeanCovariance
 const MvGaussianMeanPrecision         = MvNormalMeanPrecision
 const MvGaussianWeightedMeanPrecision = MvNormalWeightedMeanPrecision
+const MvGaussianMeanScalePrecision    = MvNormalMeanScalePrecision
 
 const UnivariateNormalDistributionsFamily{T}   = Union{NormalMeanPrecision{T}, NormalMeanVariance{T}, NormalWeightedMeanPrecision{T}, Normal{T}}
-const MultivariateNormalDistributionsFamily{T} = Union{MvNormalMeanPrecision{T}, MvNormalMeanCovariance{T}, MvNormalWeightedMeanPrecision{T}, MvNormal{T}}
+const MultivariateNormalDistributionsFamily{T} = Union{MvNormalMeanPrecision{T}, MvNormalMeanCovariance{T}, MvNormalWeightedMeanPrecision{T}, MvNormalMeanScalePrecision{T}, MvNormal{T}}
 const NormalDistributionsFamily{T}             = Union{UnivariateNormalDistributionsFamily{T}, MultivariateNormalDistributionsFamily{T}}
 
 const UnivariateGaussianDistributionsFamily   = UnivariateNormalDistributionsFamily
